@@ -5,7 +5,7 @@ import { useStaticQuery, graphql }  from "gatsby"
 import Row          from "../components/grid/flexrow"
 import Col          from "../components/grid/col"
 import Img          from 'gatsby-image'
-import size         from '../components/layout/responsive'
+import size         from '../components/Layout/responsive'
 
 
 const getSections = graphql` 

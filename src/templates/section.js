@@ -9,7 +9,7 @@ import Helmet       from "../components/seo/helmet"
 import Layout       from "../components/Layout/Layout"
 import Row          from "../components/grid/flexrow"
 import Col          from "../components/grid/col"
-import size         from '../components/layout/responsive'
+import size         from '../components/Layout/responsive'
 
 
 
