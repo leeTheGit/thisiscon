@@ -1,13 +1,12 @@
 import React from 'react'
-import Header from "./Header"
 import Footer from "./Footer"
 import Container from "../grid/container"
-
+import Header from "./Header"
 
 export default function Layout({children}) {
     return (
         <>
-            <Header />
+            <Header title="Constance Hunter" />
             <main>
                 <Container>
                     {children}

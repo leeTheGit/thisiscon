@@ -3,6 +3,9 @@ import styled from "styled-components"
 import {Link} from "gatsby"
 import { useStaticQuery, graphql }  from "gatsby"
 import Row          from "../components/grid/flexrow"
+import Col          from "../components/grid/col"
+import Img          from 'gatsby-image'
+import size         from '../components/layout/responsive'
 
 
 const getSections = graphql` 
@@ -14,6 +17,11 @@ const getSections = graphql`
             description {
               description
             }
+            image {
+                fluid {
+                    src
+                }
+            }
           }
         }
       }
@@ -23,32 +31,146 @@ const getSections = graphql`
 const Galleries = () => {
 
     const {allContentfulSection:{nodes:sections}} = useStaticQuery(getSections);
-
+    console.log(sections)
     return (
         <Gallery>
             <Row>
-                <div>
-                    {sections.map( (section) => {
-                        return (
-                            <Link to={`/${section.slug}`}>
-                                <h2>{section.title}</h2>
-                            </Link>
-                        )
-                    })}
-                </div>
+                {sections.map( (section) => {
+                    return (
+                        <Col classes={["col4"]}>
+
+                            <SectionContainer>
+                                <Section>
+                                    {section.image &&
+                                        <Image fluid={section.image.fluid} alt={section.image.title}></Image>
+                                    }
+
+                                    <Link to={`/${section.slug}`}>
+                                        <SectionName>{section.title}</SectionName>
+                                    </Link>
+                                </Section>
+                            </SectionContainer>
+
+                        </Col>
+
+                    )
+                })}
             </Row>
 
         </Gallery>
     )
 }
 
+const SectionContainer = styled.div` 
+    position:relative;
+    /* height:150px; */
+    margin-bottom:20px;
+`
+
+const Section = styled.div` 
+    /* position:absolute; */
+`
+
+
+const SectionName = styled.h2` 
+    font-size:30px;
+    margin-top:10px;
+    font-weight:300;
+    /* position:absolute; */
+    top:10px;
+    color:black;
+`
+
+
+const Image = styled(Img)` 
+    height:100px;
+    width:100%;
+
+    ${_ => size.desktoplg(`
+        height:280px;
+    `)}
+    ${_ => size.desktop(`
+        height:220px;
+    `)}
+    ${_ => size.tablet(`
+        height:160px;
+    `)}
+
+
+    /* &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        opacity: 0.3;
+        background-color: #000;
+        z-index: 1;
+    } */
+
+`
+
+
 
 const Gallery = styled.div` 
     font-size:30px;
-    color:red;
-    font-weight:blanchedalmond;
 `
 
 
 
 export default Galleries
+
+
+// @mixin tintbefore($value:0.4) {
+// 	&:before {
+// 	  content: '';
+// 	  position: absolute;
+// 	  top: 0;
+// 	  bottom: 0;
+// 	  width: 100%;
+// 	  opacity: $value;
+// 	  background-color: #000;
+// 	  z-index: 1;
+// 	}
+// }
+// @mixin tintafter($value:0.4) {
+// 	&:after {
+// 	  content: '';
+// 	  position: absolute;
+// 	  top: 0;
+// 	  bottom: 0;
+// 	  width: 100%;
+// 	  opacity: $value;
+// 	  background-color: #000;
+// 	  z-index: 1;
+// 	}
+// }
+
+// @mixin gradientbefore() {
+// 	&:before {
+// 		content: '';
+// 		position: absolute;
+// 		top: 0;
+// 		height:100%;
+// 		bottom: 0;
+// 		width: 100%;
+// 		z-index: 1;
+//         background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+//         background-image: -o-linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+//         background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+//     }
+// }
+
+// @mixin gradientafter() {
+// 	&:after {
+// 		content: '';
+// 		position: absolute;
+// 		top: 0;
+// 		bottom: 0;
+// 		width: 100%;
+// 		z-index: 1;
+//         background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+//         background-image: -o-linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+//         background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+//     }
+// }

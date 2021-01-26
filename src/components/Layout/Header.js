@@ -3,11 +3,14 @@ import styled       from "styled-components"
 import { Link }     from "gatsby"
 
 
-const Header = () => {
+const Header = (props) => {
+
+    const title = props.title || "Constance Hunter";
+
     return (
         <HeaderContainer>
             <Link to={'/'}>
-                <Heading>this.is.Con</Heading>
+                <Heading>{title}</Heading>
             </Link>
 
         </HeaderContainer>
@@ -15,7 +18,7 @@ const Header = () => {
 }
 
 const HeaderContainer = styled.div` 
-    background: #494949;
+    /* background: #494949; */
     padding:20px;
     margin-bottom:41px;
 `
@@ -26,7 +29,7 @@ const Heading = styled.h1`
     font-family: 'Montserrat', sans-serif;
     font-size:30px;
     font-weight:300;
-    color:white;
+    color:black;
     text-align:center;
 `
 

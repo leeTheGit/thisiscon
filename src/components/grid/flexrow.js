@@ -18,7 +18,7 @@ const Brow = styled.div`
     flex-direction:row;
     align-items:start;
     vertical-align:middle;
-    
+    flex-wrap:wrap;
     ${props => props.borderTop && css`
         border-top: 1px solid #595859;
         padding-top: 10px;

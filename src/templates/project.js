@@ -11,7 +11,7 @@ import Col          from "../components/grid/col"
 
 function projectTemplate({data}) {
     const {contentfulProject:project} = data;
-
+    console.log(project);
     return (
         <>
         <Helmet />
@@ -19,10 +19,15 @@ function projectTemplate({data}) {
         <Layout>
             <Row>
                 <Col classes={["col12"]}>
-                    <BreadCrumb to={`/${project.gallery}`}>{project.gallery}</BreadCrumb>
-                    <SectionTitle>{project.title}</SectionTitle>
-                    <Description>{project.description.description}</Description>
-                    <Image fluid={project.image.fluid} alt={project.image.title}></Image>
+                    <SectionTitle><Path to={'/'}>index/</Path><Path to={`/${project.gallery}`}>{project.gallery}/</Path>{project.title}</SectionTitle>
+                    {project.description &&
+                        <Description>{project.description}</Description>
+                    }
+
+                    {project.image && project.image.map((img) => {
+                        return <Image key={img.id} fluid={img.fluid} alt={img.title}></Image>
+                    })}
+                    
 
                 </Col>
             </Row>
@@ -34,6 +39,7 @@ function projectTemplate({data}) {
 const Image = styled(Img)` 
     height:600px;
     width:100%;
+    margin-bottom:30px;
 `
 
 const BreadCrumb = styled(Link)`
@@ -44,7 +50,9 @@ const BreadCrumb = styled(Link)`
 
 const SectionTitle = styled.h1` 
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 60px;
+    font-weight:300;
+    margin-bottom:20px;
 
 `
 const Description = styled.p` 
@@ -53,23 +61,26 @@ const Description = styled.p`
     margin-bottom:50px;
 
 `
-
+const Path = styled(Link)` 
+    color: rgba(0,0,0,.3);
+`
 
 
 export const query = graphql`
     query MyQuery($slug:String) {
         contentfulProject(slug: {eq: $slug}) {
-        title
-        slug
-        gallery
-        description {
-            description
-        }
-        image {
-            fluid {
-            src
+            id
+            title
+            slug
+            gallery
+            description {
+                description
             }
-        }
+            image {
+                fluid {
+                    src
+                }
+            }
         }
     }
 `

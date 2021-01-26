@@ -9,18 +9,17 @@ const col = (props) => {
     if (props.marginBottom) {
         inline['marginBottom'] = props.marginBottom;
     }
-    console.log(grid);
+
     if (props.classes) {
         gridClasses = props.classes.map( (c) => {
             console.log(c);
             return grid[c];
         });
     }
-    console.log(inline);
-    console.log(gridClasses)
-    console.log(gridClasses.join(" "))
+    // console.log(gridClasses)
+    // console.log(gridClasses.join(" "))
     return (
-        <div id="crazy" className={gridClasses.join(" ")} style={inline}>
+        <div id="" className={gridClasses.join(" ")} style={inline}>
             {props.children}
         </div>
     )

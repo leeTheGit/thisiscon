@@ -5,7 +5,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "thisiscon",
+    title: "Constance Hunter",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `j29dtnj7fkpn`,
+        spaceId: `axnk27phfqq5`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
