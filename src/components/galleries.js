@@ -31,9 +31,16 @@ const getSections = graphql`
 const Galleries = () => {
 
     const {allContentfulSection:{nodes:sections}} = useStaticQuery(getSections);
-    // console.log(sections)
+
     return (
         <Gallery>
+
+            <Row>
+                <Col classes={["col12"]}>
+                    <SectionTitle>index</SectionTitle>
+                </Col>
+            </Row>
+
             <Row>
                 {sections.map( (section) => {
                     return (
@@ -68,6 +75,13 @@ const SectionContainer = styled.div`
 
 const Section = styled.div` 
     /* position:absolute; */
+`
+const SectionTitle = styled.h1` 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight:300;
+    margin-bottom:20px;
+
 `
 
 

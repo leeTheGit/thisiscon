@@ -24,8 +24,7 @@ function Sections({data}) {
             <Layout>
                 <Row>
                     <Col classes={["col12"]}>
-                        <SectionTitle><Path to={'/'}>index/</Path>{section.title}</SectionTitle>
-                        {/* <Description>{section.description.description}</Description> */}
+                        <SectionTitle><Path to={'/'}>index/</Path>{section.slug}</SectionTitle>
                     </Col>
                 </Row>
 
