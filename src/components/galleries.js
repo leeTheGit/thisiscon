@@ -48,11 +48,12 @@ const Galleries = () => {
 
                             <SectionContainer>
                                 <Section>
+                                    <Link to={`/${section.slug}`}>
+
                                     {section.image &&
                                         <Image fluid={section.image.fluid} alt={section.image.title}></Image>
                                     }
 
-                                    <Link to={`/${section.slug}`}>
                                         <SectionName>{section.title}</SectionName>
                                     </Link>
                                 </Section>
