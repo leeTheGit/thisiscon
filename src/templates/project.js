@@ -1,4 +1,4 @@
-import React from 'react'
+import React        from 'react'
 import { graphql }  from "gatsby"
 import { Link }     from "gatsby"
 import styled       from "styled-components"
@@ -11,7 +11,7 @@ import Col          from "../components/grid/col"
 
 function projectTemplate({data}) {
     const {contentfulProject:project} = data;
-    console.log(project);
+    // console.log(project);
     return (
         <>
         <Helmet />
@@ -20,9 +20,9 @@ function projectTemplate({data}) {
             <Row>
                 <Col classes={["col12"]}>
                     <SectionTitle><Path to={'/'}>index/</Path><Path to={`/${project.gallery}`}>{project.gallery}/</Path>{project.title}</SectionTitle>
-                    {project.description &&
+                    {/* {project.description &&
                         <Description>{project.description}</Description>
-                    }
+                    } */}
 
                     {project.image && project.image.map((img) => {
                         return <Image key={img.id} fluid={img.fluid} alt={img.title}></Image>
@@ -42,27 +42,26 @@ const Image = styled(Img)`
     margin-bottom:30px;
 `
 
-const BreadCrumb = styled(Link)`
-    display:block;
-    font-size:15px;
-    margin-bottom:30px;
-`
 
 const SectionTitle = styled.h1` 
     font-family: 'Montserrat', sans-serif;
-    font-size: 60px;
+    font-size: 40px;
     font-weight:300;
     margin-bottom:20px;
 
 `
-const Description = styled.p` 
-    font-family: 'Montserrat', sans-serif;
-    margin-top:10px;
-    margin-bottom:50px;
+// const Description = styled.p` 
+//     font-family: 'Montserrat', sans-serif;
+//     margin-top:10px;
+//     margin-bottom:50px;
 
-`
+// `
 const Path = styled(Link)` 
     color: rgba(0,0,0,.3);
+    &:hover {
+        color:black;
+    }
+
 `
 
 

@@ -5,19 +5,17 @@ import grid from './grid.module.scss';
 const col = (props) => {
     let gridClasses = "";
     let inline = {};
-    console.log(props)
+
     if (props.marginBottom) {
         inline['marginBottom'] = props.marginBottom;
     }
 
     if (props.classes) {
         gridClasses = props.classes.map( (c) => {
-            console.log(c);
             return grid[c];
         });
     }
-    // console.log(gridClasses)
-    // console.log(gridClasses.join(" "))
+
     return (
         <div id="" className={gridClasses.join(" ")} style={inline}>
             {props.children}

@@ -65,7 +65,7 @@ function Sections({data}) {
 
 const SectionTitle = styled.h1` 
     font-family: 'Montserrat', sans-serif;
-    font-size: 60px;
+    font-size: 40px;
     font-weight:300;
     margin-bottom:15px;
 
@@ -73,18 +73,15 @@ const SectionTitle = styled.h1`
 
 const Path = styled(Link)` 
     color: rgba(0,0,0,.3);
+    &:hover {
+        color:black;
+    }
 `
 
-// const Description = styled.p` 
-//     font-family: 'Montserrat', sans-serif;
-//     margin-top:10px;
-
-// `
 
 
 const SectionContainer = styled.div` 
     position:relative;
-    /* height:150px; */
     margin-bottom:40px;
 `
 
@@ -97,7 +94,6 @@ const SectionName = styled.h2`
     font-size:30px;
     margin-top:10px;
     font-weight:300;
-    /* position:absolute; */
     top:10px;
     color:black;
 `

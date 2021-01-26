@@ -31,7 +31,7 @@ const getSections = graphql`
 const Galleries = () => {
 
     const {allContentfulSection:{nodes:sections}} = useStaticQuery(getSections);
-    console.log(sections)
+    // console.log(sections)
     return (
         <Gallery>
             <Row>
@@ -63,7 +63,6 @@ const Galleries = () => {
 
 const SectionContainer = styled.div` 
     position:relative;
-    /* height:150px; */
     margin-bottom:20px;
 `
 
@@ -76,7 +75,6 @@ const SectionName = styled.h2`
     font-size:30px;
     margin-top:10px;
     font-weight:300;
-    /* position:absolute; */
     top:10px;
     color:black;
 `

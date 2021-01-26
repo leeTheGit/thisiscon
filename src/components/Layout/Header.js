@@ -18,7 +18,6 @@ const Header = (props) => {
 }
 
 const HeaderContainer = styled.div` 
-    /* background: #494949; */
     padding:20px;
     margin-bottom:41px;
 `
