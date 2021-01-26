@@ -102,6 +102,11 @@ const Image = styled(Img)`
     ${_ => size.desktoplg(`
         height:280px;
     `)}
+
+    ${_ => size.desktopmd(`
+        height:280px;
+    `)}
+
     ${_ => size.desktop(`
         height:220px;
     `)}
