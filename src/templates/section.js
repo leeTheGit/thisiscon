@@ -33,7 +33,7 @@ function Sections({data}) {
 
                 {projects.map( (project) => {
                     return (
-                        <Col classes={["col4"]}>
+                        <Col classes={["col12", "colMd4"]}>
 
                             <SectionContainer>
                                 <Section>
@@ -116,6 +116,13 @@ const Image = styled(Img)`
     `)}
     ${_ => size.tablet(`
         height:160px;
+    `)}
+
+    ${_ => size.mobileLG(`
+        height:410px;
+    `)}
+    ${_ => size.mobile(`
+        height:410px;
     `)}
 
 

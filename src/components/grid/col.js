@@ -15,7 +15,7 @@ const col = (props) => {
             return grid[c];
         });
     }
-
+    console.log(grid);
     return (
         <div id="" className={gridClasses.join(" ")} style={inline}>
             {props.children}
