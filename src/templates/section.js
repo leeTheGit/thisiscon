@@ -29,7 +29,7 @@ function Sections({data}) {
                 </Row>
 
 
-                <Row>
+                <Row style={{marginTop:"20px"}}>
 
                 {projects.map( (project) => {
                     return (
@@ -67,7 +67,6 @@ const SectionTitle = styled.h1`
     font-size: 40px;
     font-weight:300;
     margin-bottom:15px;
-
 `
 
 const Path = styled(Link)` 

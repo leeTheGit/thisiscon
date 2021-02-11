@@ -11,7 +11,7 @@ import Col          from "../components/grid/col"
 
 function projectTemplate({data}) {
     const {contentfulProject:project} = data;
-    // console.log(project);
+    console.log(project);
     return (
         <>
         <Helmet />
@@ -24,9 +24,11 @@ function projectTemplate({data}) {
                         <Description>{project.description}</Description>
                     } */}
 
-                    {project.image && project.image.map((img) => {
-                        return <Image key={img.id} fluid={img.fluid} alt={img.title}></Image>
-                    })}
+                    <ImageContainer>
+                        {project.image && project.image.map((img) => {
+                            return <Image key={img.id} fluid={img.fluid} alt={img.title}></Image>
+                        })}
+                    </ImageContainer>
                     
 
                 </Col>
@@ -37,17 +39,29 @@ function projectTemplate({data}) {
 }
 
 const Image = styled(Img)` 
-    height:600px;
-    width:100%;
-    margin-bottom:30px;
+    display:block !important;
+    background:white;
+    margin-bottom:60px;
+    img {
+        position:relative !important;
+        height: auto !important;
+    }
 `
 
+const ImageContainer = styled.div`
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
 const SectionTitle = styled.h1` 
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     font-weight:300;
-    margin-bottom:20px;
+    margin-bottom:40px;
+    text-align:center;
+
 
 `
 // const Description = styled.p` 
@@ -76,7 +90,7 @@ export const query = graphql`
                 description
             }
             image {
-                fluid {
+                fluid(maxWidth: 800) {
                     src
                 }
             }

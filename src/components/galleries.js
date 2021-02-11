@@ -41,7 +41,7 @@ const Galleries = () => {
                 </Col>
             </Row>
 
-            <Row>
+            <Row style={{marginTop:"20px"}}>
                 {sections.map( (section) => {
                     return (
                         <Col classes={["col12", "colMd4"]}>
@@ -98,6 +98,7 @@ const SectionName = styled.h2`
 const Image = styled(Img)` 
     height:100px;
     width:100%;
+    border-radius: 5%;
 
     ${_ => size.desktoplg(`
         height:280px;
